@@ -1,0 +1,41 @@
+<body >
+<style>
+body{
+  background-size: cover;
+  Background-image: url(https://thumbs.gfycat.com/WateryWavyElk-max-1mb.gif);
+}
+</style>
+<div class="jumbotron" style="width: 469px; height: 610px; padding: 38px; margin-left: 313px; margin-top: 41px; opacity:0.4;">
+
+      <form method="post" action="/users/register">
+        <h2><span class="fa fa-sign-in"></span> SignUp to your Account</h2>
+        <hr>
+         <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Name" name="name" required>
+        </div>
+         <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="password2" required>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <br><br>
+        <p>Already have an account? Login <a href="/users/login">here</a></p><hr><br>
+        {{#if errors}}
+        {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+        {{/each}}
+        {{/if}}
+      </form>
+
+
+</div>
+</body>
