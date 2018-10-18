@@ -15,7 +15,7 @@ router.get("/mypolls", function(req, res) {
   else {
     var userId = req.user.id;
 
-    // find and display all the polls of the currently authenticated user 
+    // find and display all the polls of the currently authenticated user
     Poll.find().exec(function(err, polls) {
       if (err) throw err;
 
@@ -30,10 +30,43 @@ router.get("/mypolls", function(req, res) {
       res.render("mypolls", {
         polls: myPolls
       });
-    });  
+    });
   }
-  
+
 });
+
+
+
+// education
+router.get("/edu", function(req, res) {
+    // user not logged in, show login page
+    if (!req.user) {
+      res.redirect("/users/login");
+    }
+    // user logged in, redirect to homepage
+    else {
+      var userId = req.user.id;
+
+      // find and display all the polls of the currently authenticated user
+      Poll.find().exec(function(err, polls) {
+        if (err) throw err;
+
+        var myPolls = [];
+
+        for (var poll in polls) {
+          if (polls[poll].creator == userId) {
+            myPolls.push(polls[poll]);
+          }
+        }
+
+        res.render("education", {
+          polls: myPolls
+        });
+      });
+    }
+});
+
+
 
 // Get Homepage
 router.get("/", function(req, res) {

@@ -30,7 +30,7 @@ module.exports.getPollById = function(id, callback) {
 module.exports.updatePollById = function(id, optionIndex, userId) {
   // update votes on the given option of the given poll
   Poll.getPollById(id, function(err, pollInfo) {
-      
+
     // increase vote
     var options = pollInfo.options;
     var voters = pollInfo.voters;

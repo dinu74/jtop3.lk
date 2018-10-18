@@ -1,5 +1,9 @@
 <h12 class="mt-4" style="font-size: 37px;"><b>{{title}}</b></h12>
 
+{{#each options }}
+  <option class="styleit" style="color:red;" id="co{{@index}}" type="radio" name="option" value="{{@index}}"> {{option }} <br>
+{{/each}}
+
 <div class="row "  >
   <div class="col-xs-12 col-sm-5">
     <div  class="newvoteboxx" >
@@ -53,6 +57,13 @@
 
       });
     }
+
+
+      document.getElementById('co3').style.display = "none";
+      document.getElementById('co4').style.display = "none";
+      document.getElementById('co5').style.display = "none";
+      document.getElementById('co6').style.display = "none";
+      document.getElementById('co7').style.display = "none";
 
   </script>
 </div>

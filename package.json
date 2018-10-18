@@ -2,7 +2,7 @@
   "name": "jtop3.lk",
   "version": "1.0.0",
   "description": "jaffna voting website for jaffna top 3 places ",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +21,7 @@
     "express-validator": "*",
     "mongodb": "*",
     "mongoose": "*",
+    "nodemon": "^1.18.4",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",

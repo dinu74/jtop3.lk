@@ -1,0 +1,72 @@
+<!-- DIMOSHAN  <h1 id="nameit"></h1>
+<script type="text/javascript">
+
+  for (var i = 0; i < polls.length; i++) {
+    document.getElementById('nameit').innerHTML = polls[i].title;
+  }
+</script> -->
+
+
+
+
+<!-- ME  -->
+
+
+<h12 class="mt-4" style="font-size: 37px;"><b>{{title}}</b></h12>
+
+<div class="row "  >
+  <div class="col-xs-12 col-sm-5">
+    <div  class="newvoteboxx" >
+      <br><br><h3>Vote hear </h3><br>
+      <form action="/polls/{{id}}" method="post" >
+        <select class="form-control" name="options" >
+
+        {{#each options}}
+          <option  type="radio" name="option" value="{{@index}}"> {{option}} <br>
+        {{/each}}
+        </select><br>
+        {{#if user}}
+          {{#if choice}}
+            <div class="alert alert-info">You have voted for {{choice}}</div>
+          {{else}}
+          <button type="submit" class="btn btn-primary btn-block">Vote</button>
+          {{/if}}
+
+        {{else}}
+          <div class="alert alert-info">You must be logged in to vote</div>
+        {{/if}}
+
+      </form><br>
+      {{#if creatorSession}}
+	 <a type="button" href="/polls/remove/{{id}}" class="btn btn-block btn-danger">Remove this Poll</a>
+      {{/if}}
+    </div>
+
+  </div>
+
+  <div class="chart col-xs-12 col-sm-4 col-sm-offset-1 votingrate">
+    <canvas id="myChart" width="100" height="100"></canvas>
+    <!-- <img src="/images/likeGIF.gif" class="imagenew " style="opacity:0.1 ;"alt=""> -->
+  </div>
+  <script type="text/javascript">
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var colors = "{{colors}}".split(",");
+    var labels = "{{labels}}".split(",");
+    console.log(colors.length, labels.length);
+    if (colors.length !== 0) {
+      var myChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '# of Votes',
+                data: [{{votes}}],
+                backgroundColor: colors,
+            }]
+        },
+
+      });
+    }
+
+  </script>
+</div>
