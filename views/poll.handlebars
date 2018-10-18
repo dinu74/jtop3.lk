@@ -1,9 +1,20 @@
 <h12 class="mt-4" style="font-size: 37px;"><b>{{title}}</b></h12>
 
-{{#each options }}
-  <option class="styleit" style="color:red;" id="co{{@index}}" type="radio" name="option" value="{{@index}}"> {{option }} <br>
-{{/each}}
+<br>
+<!-- time id call code  -->
+<div class="timerplace">
+  <h1><b><p id="demo"></p></b></h1>
+</div>
+    <!-- end -->
+<div class="MyBoxStyle box ">
 
+  <!-- top3 place vote   -->
+  {{#each options }}
+  <option  id="co{{@index}}" style="font-family: monospace; font-size: 26px; margin-left: 117px; padding: 88px;"type="radio" name="option" value="{{@index}}" > <b>{{option }}</b> <br>
+    {{/each}}
+
+
+</div>
 <div class="row "  >
   <div class="col-xs-12 col-sm-5">
     <div  class="newvoteboxx" >
@@ -28,13 +39,13 @@
 
       </form><br>
       {{#if creatorSession}}
-	 <a type="button" href="/polls/remove/{{id}}" class="btn btn-block btn-danger">Remove this Poll</a>
+	 <!-- <a type="button" href="/polls/remove/{{id}}" class="btn btn-block btn-danger">Remove this Poll</a> -->
       {{/if}}
     </div>
 
   </div>
 
-  <div class="chart col-xs-12 col-sm-4 col-sm-offset-1 votingrate">
+  <div class="chart col-xs-12 col-sm-4 col-sm-offset-1 votingrate" style="margin-left: 231px; margin-top: -594px;">
     <canvas id="myChart" width="100" height="100"></canvas>
     <!-- <img src="/images/likeGIF.gif" class="imagenew " style="opacity:0.1 ;"alt=""> -->
   </div>
@@ -58,12 +69,54 @@
       });
     }
 
+    document.getElementById('co3').style.display = "none";
+    document.getElementById('co4').style.display = "none";
+    document.getElementById('co5').style.display = "none";
+    document.getElementById('co6').style.display = "none";
+    document.getElementById('co7').style.display = "none";
 
-      document.getElementById('co3').style.display = "none";
-      document.getElementById('co4').style.display = "none";
-      document.getElementById('co5').style.display = "none";
-      document.getElementById('co6').style.display = "none";
-      document.getElementById('co7').style.display = "none";
 
   </script>
 </div>
+
+<img src="/1,2,3 icone/likeButonLogo2.png" style="width: 139px; margin-top: -1347px; margin-left: 101px;">
+<img src="/1,2,3 icone/likeButonLogo2(1).png" style="width: 139px; margin-top: -958px;margin-left: -140px;">
+<img src="/1,2,3 icone/likeButonLogo2(2).png" style="width: 139px; margin-top: -534px; margin-left: -140px;">
+
+    <!-- ==========================================
+    ============timer code start ================ -->
+
+    <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("October 26, 2018 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get todays date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    </script>
+
+  <!--
+    ============================================
+    ===========timer code end =================== -->
